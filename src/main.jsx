@@ -4,7 +4,10 @@ import Lenis from 'lenis'
 import '@fontsource/space-mono/400.css'
 import './style.css'
 
-const A = '/assets/'
+const A = (import.meta.env.VITE_ASSET_BASE || '/assets/').replace(/\/?$/, '/')
+
+document.documentElement.style.setProperty('--engineering-mask', `url("${A}imgLouisReedWStCaQpiLtcUnsplash3.svg")`)
+document.documentElement.style.setProperty('--journal-mask', `url("${A}imgDsc008151.svg")`)
 
 const products = [
   { image: 'img19388C9Bbd0Eb399Cde99F7Fbfe62B6F1.png', variant: 'wheel-one', color: 'black' },
