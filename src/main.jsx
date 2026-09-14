@@ -10,59 +10,59 @@ document.documentElement.style.setProperty('--engineering-mask', `url("${A}imgLo
 document.documentElement.style.setProperty('--journal-mask', `url("${A}imgDsc008151.svg")`)
 
 const products = [
-  { image: 'img19388C9Bbd0Eb399Cde99F7Fbfe62B6F1.png', variant: 'wheel-one', color: 'black' },
-  { image: 'imgVsMl2111.png', variant: 'wheel-two', color: 'red' },
-  { image: 'img90Df5414Dbd610Fe185Db9C49904D8B81.png', variant: 'wheel-three', color: 'gold' },
-  { image: 'imgVs661.png', variant: 'wheel-four', color: 'black' },
+  { image: 'img19388C9Bbd0Eb399Cde99F7Fbfe62B6F1.webp', variant: 'wheel-one', color: 'black' },
+  { image: 'imgVsMl2111.webp', variant: 'wheel-two', color: 'red' },
+  { image: 'img90Df5414Dbd610Fe185Db9C49904D8B81.webp', variant: 'wheel-three', color: 'gold' },
+  { image: 'imgVs661.webp', variant: 'wheel-four', color: 'black' },
 ]
 
 const wheelColors = {
-  black: { image: 'img19388C9Bbd0Eb399Cde99F7Fbfe62B6F1.png', variant: 'wheel-one', value: '#050505' },
-  red: { image: 'imgVsMl2111.png', variant: 'wheel-two', value: '#ae0909' },
-  gold: { image: 'img90Df5414Dbd610Fe185Db9C49904D8B81.png', variant: 'wheel-three', value: '#8e6b00' },
+  black: { image: 'img19388C9Bbd0Eb399Cde99F7Fbfe62B6F1.webp', variant: 'wheel-one', value: '#050505' },
+  red: { image: 'imgVsMl2111.webp', variant: 'wheel-two', value: '#ae0909' },
+  gold: { image: 'img90Df5414Dbd610Fe185Db9C49904D8B81.webp', variant: 'wheel-three', value: '#8e6b00' },
 }
 
 const engineeringSteps = [
   {
     title: 'Precision Manufacturing',
     description: 'Every VIVE product follows unified engineering standards and manufacturing processes. Advanced forging, precision CNC machining, and rigorous production specifications ensure consistency, reliability, and dimensional accuracy. For us, quality is defined not only by the finished product, but by every detail throughout the manufacturing process.',
-    image: 'engineering-1.png',
+    image: 'engineering-1.webp',
     alt: 'Precision electronics manufacturing line',
   },
   {
     title: 'Engineering R&D',
     description: 'We continually invest in materials research, engineering technology, and product development. Using validation methods such as finite element analysis (FEA), we optimize weight, structural strength, and durability to deliver precisely engineered solutions for a wide range of vehicles.',
-    image: 'engineering-2.png',
+    image: 'engineering-2.webp',
     alt: 'VIVE engineering research and development',
   },
   {
     title: 'Advanced Materials',
     description: 'T6-6061 aluminum alloy is our primary material. We continue to explore new materials and manufacturing processes to enhance product performance and durability.',
-    image: 'engineering-3.png',
+    image: 'engineering-3.webp',
     alt: 'VIVE advanced aluminum alloy manufacturing',
   },
   {
     title: 'Custom Development',
     description: 'We provide professional custom development and engineered solutions tailored to different vehicles, applications, and customer requirements.',
-    image: 'engineering-4.png',
+    image: 'engineering-4.webp',
     alt: 'VIVE custom wheel development and testing',
   },
   {
     title: 'Precision Surface Treatment',
     description: 'A broad selection of precision surface finishes enhances durability while meeting a wide range of individual styling requirements.',
-    image: 'engineering-5.png',
+    image: 'engineering-5.webp',
     alt: 'VIVE precision wheel surface treatment',
   },
   {
     title: 'Quality Commitment',
     description: 'Every wheel we build is engineered with one goal: the warranty should never need to be used. From materials research and engineering design to precision manufacturing, every process is centered on safety, durability, and performance.',
-    image: 'engineering-6.png',
+    image: 'engineering-6.webp',
     alt: 'Close-up of VIVE wheel manufacturing quality',
   },
   {
     title: 'User Experience',
     description: 'From expert consultation and product delivery to long-term technical support, we put customer needs first. Our transparent, efficient, and dependable end-to-end service makes every partnership more assured.',
-    image: 'engineering-7.png',
+    image: 'engineering-7.webp',
     alt: 'VIVE wheel fitted to a performance vehicle',
   },
 ]
@@ -75,10 +75,10 @@ const stats = [
 ]
 
 const journals = [
-  ['imgDsc8152.png', 'VIVE Unveils Its New Forged Wheel Collection'],
-  ['imgDsc007471.png', 'Next-Generation Lightweight Wheels Debut with Performance and Style'],
-  ['imgDsc007911.png', 'New Multi-Spoke Design Redefines the Performance Wheel Aesthetic'],
-  ['imgCloseUpMetalGear1.png', 'VIVE Introduces New Custom Wheel Finish Options'],
+  ['imgDsc8152.webp', 'VIVE Unveils Its New Forged Wheel Collection'],
+  ['imgDsc007471.webp', 'Next-Generation Lightweight Wheels Debut with Performance and Style'],
+  ['imgDsc007911.webp', 'New Multi-Spoke Design Redefines the Performance Wheel Aesthetic'],
+  ['imgCloseUpMetalGear1.webp', 'VIVE Introduces New Custom Wheel Finish Options'],
 ]
 
 function ArrowButton({ children }) {
@@ -150,7 +150,7 @@ function Header() {
   return (
     <header className={`site-header${scrolled ? ' is-scrolled' : ''}${visible ? '' : ' is-hidden'}`}>
       <a className="brand" href="#top" aria-label="VIVE home">
-        <span className="brand-crop"><img src={`${A}imgChatgptImage20265152123561.png`} alt="VIVE" /></span>
+        <span className="brand-crop"><img src={`${A}imgChatgptImage20265152123561.webp`} alt="VIVE" /></span>
       </a>
       <nav className="main-nav" aria-label="Main navigation">
         <a href="#products">PRODUCTS</a>
@@ -174,8 +174,8 @@ function Hero({ onOpenVideo }) {
     <section className="hero screen" id="top">
       <video
         className="hero-bg"
-        src={`${A}scout-hero-11-21.mp4`}
-        poster={`${A}scout-hero-poster.jpg`}
+        src={`${A}scout-hero-11-21.webm`}
+        poster={`${A}scout-hero-poster.webp`}
         autoPlay
         muted
         loop
@@ -184,7 +184,7 @@ function Hero({ onOpenVideo }) {
         aria-label="Scout autonomous vehicle driving through woodland"
       />
       <div className="hero-shade" />
-      <img className="hero-top-fade" src={`${A}imgRectangle1430107304.png`} alt="" />
+      <img className="hero-top-fade" src={`${A}imgRectangle1430107304.webp`} alt="" />
       <Header />
       <div className="hero-copy">
         <h1 aria-label="ENGINEERED FOR THE DRIVEN">
@@ -195,7 +195,7 @@ function Hero({ onOpenVideo }) {
       </div>
       <button className="video-card" type="button" onClick={onOpenVideo} aria-haspopup="dialog" aria-label="Play Discover VIVE video">
         <div className="video-thumb">
-          <img src={`${A}imgImage2.png`} alt="VIVE off-road video" />
+          <img src={`${A}imgImage2.webp`} alt="VIVE off-road video" />
           <span className="play"><img src={`${A}imgFrame2087326985.svg`} alt="Play" /></span>
         </div>
         <div className="video-meta"><span>NEW VIDEO</span><strong>Discover VIVE</strong></div>
@@ -430,6 +430,7 @@ function EngineeringCardLayer({ index, className = '', active = false, onPreviou
           className="engineering-media"
           src={`${A}${step.image}`}
           alt={active ? step.alt : ''}
+          decoding="async"
         />
       </div>
       <div className="engineering-copy">
@@ -516,7 +517,7 @@ function Engineering() {
 function About() {
   return (
     <section className="about screen" id="about">
-      <video className="about-bg" src={`${A}who-we-are-bg.mp4`} autoPlay muted loop playsInline preload="auto" aria-hidden="true" />
+      <video className="about-bg" src={`${A}who-we-are-bg.webm`} autoPlay muted loop playsInline preload="auto" aria-hidden="true" />
       <div className="about-overlay" />
       <div className="about-intro" data-reveal="lift"><h2 className="reveal-title" data-reveal="words" aria-label="WHO WE ARE"><RevealWords text="WHO WE ARE" /></h2><p>Premium aluminum alloy wheels crafted for performance</p><ArrowButton>ABOUT US</ArrowButton></div>
       <div className="about-bottom" data-reveal="lift">
@@ -538,7 +539,7 @@ function Journal() {
       <div className="journal-grid">
         {journals.map(([image, title], i) => (
           <article className="journal-card" data-reveal="lift" style={{ '--reveal-delay': `${i * 0.07}s` }} key={title}>
-            <div className="journal-image"><img src={`${A}${image}`} alt="" /><time dateTime="2026-07-12">2026.7.12</time></div>
+            <div className="journal-image"><img src={`${A}${image}`} alt="" loading="lazy" decoding="async" /><time dateTime="2026-07-12">2026.7.12</time></div>
             <div className="journal-title"><h3>{title}</h3><img src={`${A}imgFrame2147238930.svg`} alt="" /></div>
           </article>
         ))}
@@ -604,7 +605,7 @@ function StoryFlow() {
 function Upgrade() {
   return (
     <section className="upgrade" data-reveal="lift">
-      <div className="upgrade-image"><img src={`${A}imgRimBlackMetalGrungeCloseUp3DRendering1.png`} alt="Close-up of a VIVE wheel" /></div>
+      <div className="upgrade-image"><img src={`${A}imgRimBlackMetalGrungeCloseUp3DRendering1.webp`} alt="Close-up of a VIVE wheel" loading="lazy" decoding="async" /></div>
       <div className="upgrade-copy"><h2 className="reveal-title" data-reveal="words" aria-label="READY TO UPGRADE YOUR WHEELS?"><RevealWords text={'READY TO UPGRADE\nYOUR WHEELS?'} /></h2><p>Connect with us to see how VIVE Wheels can enhance your driving.</p><ArrowButton>CONTACT US</ArrowButton></div>
     </section>
   )
@@ -625,12 +626,12 @@ function Footer() {
           <div className="social-icons">
             <img className="social-icons-group" src={`${A}imgGroup2085661577.svg`} alt="Facebook, Instagram, YouTube, TikTok, Reddit and Discord" />
             <span className="social-x-cover" aria-hidden="true" />
-            <img className="social-x" src={`${A}imgSocialX.png`} alt="X" />
+            <img className="social-x" src={`${A}imgSocialX.webp`} alt="X" />
           </div>
           <a href="#footer">Privacy Policy</a><p>© 2026,VIVE. All Rights Reserved.</p>
         </div>
       </div>
-      <img className="footer-mark" src={`${A}imgFooterMark.png`} alt="" />
+      <img className="footer-mark" src={`${A}imgFooterMark.webp`} alt="" />
     </footer>
   )
 }
@@ -657,7 +658,7 @@ function VideoModal({ open, onClose }) {
     <div className="video-modal" role="dialog" aria-modal="true" aria-label="Discover VIVE video" onMouseDown={(event) => { if (event.target === event.currentTarget) onClose() }}>
       <button className="video-modal-close" type="button" onClick={onClose} aria-label="Close video">×</button>
       <div className="video-modal-frame">
-        <video ref={videoRef} src={`${A}scout-hero-11-21.mp4`} poster={`${A}scout-hero-poster.jpg`} controls playsInline preload="metadata" />
+        <video ref={videoRef} src={`${A}scout-hero-11-21.webm`} poster={`${A}scout-hero-poster.webp`} controls playsInline preload="metadata" />
       </div>
     </div>
   )
