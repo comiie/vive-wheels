@@ -10,6 +10,7 @@
     "generate": "nuxt generate",
     "typecheck": "nuxt typecheck",
     "test:static": "node scripts/verify-static.mjs",
+    "test:carousel": "node scripts/verify-carousel.mjs",
     "postinstall": "nuxt prepare"
   },
   "dependencies": {

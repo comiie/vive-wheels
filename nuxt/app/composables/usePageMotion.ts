@@ -5,6 +5,7 @@ export function usePageMotion(modalOpen: Ref<boolean>) {
   let frame = 0
   let resetFrame = 0
   let previousRestoration: ScrollRestoration = 'auto'
+  let revealObserver: IntersectionObserver | undefined
   const resetToHero = () => {
     lenis?.scrollTo(0, { immediate: true })
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
@@ -30,6 +31,14 @@ export function usePageMotion(modalOpen: Ref<boolean>) {
       resetFrame = requestAnimationFrame(resetToHero)
     })
     window.addEventListener('pageshow', resetToHero)
+    revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return
+        entry.target.classList.add('is-visible')
+        revealObserver?.unobserve(entry.target)
+      })
+    }, { threshold: 0.12, rootMargin: '0px 0px -7% 0px' })
+    document.querySelectorAll('[data-reveal]').forEach(element => revealObserver?.observe(element))
   })
 
   onBeforeUnmount(() => {
@@ -38,5 +47,6 @@ export function usePageMotion(modalOpen: Ref<boolean>) {
     window.removeEventListener('pageshow', resetToHero)
     history.scrollRestoration = previousRestoration
     lenis?.destroy()
+    revealObserver?.disconnect()
   })
 }
