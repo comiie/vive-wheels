@@ -2,8 +2,8 @@
 
 This directory is an independent Nuxt 4 / Vue 3 / TypeScript application on
 `codex/nuxt-vue3-migration`. The root React application and production deployment
-remain unchanged. All homepage sections are migrated for a single full-page
-review. Do not merge or deploy over production until the owner approves it.
+were retained during review. All homepage sections have now been approved by
+the owner and deployed to production on 2026-09-15. See `DEPLOYMENT.md`.
 
 ## Run
 
@@ -43,7 +43,7 @@ for video acceptance because it does not serve partial byte-range responses.
 - [x] Pinned story sequence, about video, rolling statistics.
 - [x] Journal hover, contact and footer.
 - [ ] Full-page desktop/mobile/Safari regression review and owner approval.
-- [ ] Separate deployment preview approved, then explicit production cutover.
+- [x] Full-page preview approved, then explicit production cutover.
 
 EN, mobile MENU, filter datasets and placeholder CTA destinations retain the
 original behavior; migration does not add unapproved translations, menus,
@@ -68,5 +68,6 @@ product datasets or inner pages. Production reference: https://vive.onew.design/
 - The original stylesheet is loaded unchanged, including title stagger timings,
   responsive rules, hover frames and reduced-motion rules.
 - Full 1920×1080/mobile cross-browser visual acceptance is still pending.
-- Full-page owner approval: pending. No staged placeholder sections remain.
-- No production HTML, OSS, CDN, DNS or server configuration has been changed.
+- Full-page owner approval: received. No staged placeholder sections remain.
+- Production cutover is recorded in `DEPLOYMENT.md`; the previous HTML and
+  its versioned CDN assets remain available for rollback.
