@@ -8,6 +8,7 @@ export default defineNuxtConfig({
   // Reuse the approved assets and CSS; retain React sources for rollback.
   dir: { public: '../public' },
   css: [
+    'lenis/dist/lenis.css',
     '@fontsource/space-mono/400.css',
     fileURLToPath(new URL('../src/style.css', import.meta.url)),
   ],

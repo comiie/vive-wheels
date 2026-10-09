@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import Lenis from 'lenis'
+import 'lenis/dist/lenis.css'
 import '@fontsource/space-mono/400.css'
 import './style.css'
 
