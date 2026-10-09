@@ -40,6 +40,7 @@ const keydown = (event: KeyboardEvent, index: number) => {
 </template>
 <style>
 .about-owner.about-owner-scroll{height:auto}
+.owner-services>button{display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;min-width:0}
 .owner-readability-shade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,#000b,transparent 70%),linear-gradient(0deg,#000d,transparent 45%)}
 .owner-scroll-scene .owner-background{opacity:0;transition:opacity .7s cubic-bezier(.22,.68,.1,1),scale 1s ease;scale:1.025}.owner-scroll-scene .owner-background.is-active{opacity:1;scale:1}.owner-scroll-scene .owner-background:not(.is-original){inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
 .owner-scroll-scene{position:relative;margin:calc(80 * var(--u)) calc(80 * var(--u)) 0}.owner-scroll-scene .about-owner-photo{margin:0;height:100svh;min-height:540px}.owner-scroll-scene.is-pinned .about-owner-photo{position:sticky;top:0;min-height:0}.owner-scroll-scene .owner-description{top:46%;transform:translateY(-50%)}.owner-scroll-scene .owner-services{top:auto;bottom:6%;}.owner-scroll-scene .owner-service-line{height:1px}.owner-scroll-scene .owner-service-line span{width:100%;height:1px;transform-origin:left}.owner-scroll-scene .owner-car{object-fit:cover}

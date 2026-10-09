@@ -1,5 +1,20 @@
 # Responsive verification — 2026-10-09
 
+## Follow-up: button contrast, tablet lines and FAQ icons
+
+- Wrapped Sort + Filter text in the shared button's foreground layer. Verified
+  keyboard-focus white background with black text and label z-index 1 above the
+  wipe layer at z-index 0; the filter still expands normally.
+- Owner service buttons now use top-aligned flex columns. The original 900px
+  layout had a 9px vertical difference between single- and double-line labels.
+  At 800, 820, 850, 900, 950, 1000, 1024, 1100, 1280 and 1920px, all five lines
+  now have identical top coordinates. The 760px stacked layout remains stacked.
+- Product FAQ icons use fixed 24×24px boxes / 24px text with flex-shrink 0.
+  Verified at 320, 390, 600, 800, 900, 1000, 1100 and 1920px in the generated
+  static build, and clicked a FAQ to confirm the answer expands.
+- Added regression assertions for all three fixes. Checks use Chrome viewport
+  emulation; they do not constitute physical-device testing.
+
 ## Follow-up: mobile interactions and homepage dividers
 
 - Homepage product and journal rails now show part of the next card. Catalog

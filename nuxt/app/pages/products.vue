@@ -37,7 +37,7 @@ const filteredWheels = computed(() => {
     </section>
     <section id="wheel-filters" class="catalog">
       <div class="catalog-heading"><MotionTitle as="h1" text="WHEEL FILTERS" /><DarkSelect v-model="sort" class="catalog-sort-control catalog-sort-desktop" :options="sortOptions" label="Sort wheels" /></div>
-      <button class="catalog-mobile-toggle outline-button" type="button" :aria-expanded="mobileFiltersOpen" aria-controls="catalog-filter-panel" @click="mobileFiltersOpen = !mobileFiltersOpen">Sort + Filter <ArrowIcon :direction="mobileFiltersOpen ? 'up' : 'down'" /></button>
+      <button class="catalog-mobile-toggle outline-button" type="button" :aria-expanded="mobileFiltersOpen" aria-controls="catalog-filter-panel" @click="mobileFiltersOpen = !mobileFiltersOpen"><span>Sort + Filter</span><ArrowIcon :direction="mobileFiltersOpen ? 'up' : 'down'" /></button>
       <div class="catalog-layout">
         <div id="catalog-filter-panel" class="catalog-filter-panel" :class="{ 'is-open': mobileFiltersOpen }">
           <CatalogFilters :initial-series="initialSeries" @construction="construction = $event" @series="series = $event">
