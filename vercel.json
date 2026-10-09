@@ -2,6 +2,6 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": null,
   "installCommand": "cd nuxt && npx --yes pnpm@11.19.0 install --frozen-lockfile",
-  "buildCommand": "cd nuxt && npx --yes pnpm@11.19.0 generate",
+  "buildCommand": "cd nuxt && NITRO_PRESET=static npx --yes pnpm@11.19.0 generate",
   "outputDirectory": "nuxt/.output/public"
 }
