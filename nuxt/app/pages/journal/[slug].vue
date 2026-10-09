@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { journalArticles } from '../../data/journal'
 import { journalBody } from '../../data/journal-body'
-import '../../assets/editorial.css'
 const route = useRoute()
 const asset = useAsset()
 const article = computed(() => journalArticles.find(item => item.slug === route.params.slug))

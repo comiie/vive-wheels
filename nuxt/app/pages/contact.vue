@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import '../assets/editorial.css'
 import { countries } from '../data/countries'
 useHead({ title: 'Contact — VIVE' })
 const asset = useAsset()

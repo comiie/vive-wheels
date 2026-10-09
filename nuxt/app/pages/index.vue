@@ -6,7 +6,7 @@ useHead({ htmlAttrs: { style: `--engineering-mask:url("${asset('imgLouisReedWStC
 </script>
 
 <template>
-  <main>
+  <main class="home-page">
     <HeroSection @open-video="videoOpen = true" />
     <ProductsSection />
     <StoryFlow />

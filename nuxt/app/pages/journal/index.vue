@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { journalArticles, journalCategories } from '../../data/journal'
-import '../../assets/editorial.css'
 useHead({ title: 'Journal — VIVE' })
 const asset = useAsset()
 const category = ref('brand')

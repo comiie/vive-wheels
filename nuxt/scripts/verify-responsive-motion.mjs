@@ -34,3 +34,15 @@ for(const image of backgrounds)assert.ok(existsSync(new URL(`../../public/assets
 assert.match(owner,/is-active': active === i/)
 assert.match(readFileSync(new URL('../app/assets/editorial.css',import.meta.url),'utf8'),/border-block:1px solid #ffffff33/)
 console.log('PASS responsive motion: five real backgrounds, continuous sticky entry/exit, reduced-motion fallback, 20% contact dividers')
+
+// These guard the cascade/layout contract only. They do not replace browser QA.
+const config=readFileSync(new URL('../nuxt.config.ts',import.meta.url),'utf8')
+const responsive=readFileSync(new URL('../app/assets/responsive.css',import.meta.url),'utf8')
+assert.ok(config.indexOf('~/assets/responsive.css')>config.indexOf('~/assets/editorial.css'),'responsive rules load after shared page styles')
+assert.match(readFileSync(new URL('../app/pages/index.vue',import.meta.url),'utf8'),/<main class="home-page">/)
+assert.match(responsive,/\.home-page \.hero\.screen\{min-height:600px;height:100svh\}/)
+assert.match(responsive,/\.home-page \.engineering-panel\{height:auto;min-height:0;display:grid/)
+assert.match(responsive,/\.home-page \.journal-grid\{grid-template-columns:1fr/)
+assert.match(responsive,/\.editorial-card-title h3\{display:block;-webkit-line-clamp:unset/)
+assert.match(responsive,/html,body,#__nuxt\{min-height:100%;background:#0e0f0f\}/)
+console.log('PASS responsive layout contracts: deterministic cascade, viewport hero, natural-height cards, readable complete titles and dark page background')

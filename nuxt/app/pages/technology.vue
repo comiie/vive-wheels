@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import '../assets/technology.css'
 useHead({ title: 'Technology — VIVE' })
 const asset = useAsset()
 </script>
