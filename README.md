@@ -26,11 +26,22 @@ Use a new versioned CDN prefix for each future release. Publish generated
 resources first, verify them, then atomically replace the server HTML entry.
 See `nuxt/DEPLOYMENT.md` for the deployed release and rollback instructions.
 
+## Vercel review deployment
+
+Import `comiie/vive-wheels` with the repository root as Root Directory and
+Node.js 22.x or newer. The root `vercel.json` explicitly builds the Nuxt app
+and publishes `nuxt/.output/public`, not the retained React/Vite app.
+Use branch `codex/inner-pages-static` for the current inner-page review.
+No environment variables are required: JS, images and videos use local URLs.
+Leave `VIVE_PRODUCTION`, `NUXT_APP_CDN_URL` and `NUXT_PUBLIC_ASSET_BASE` unset
+for this separate review site; the existing Alibaba production release is
+unchanged. Review builds retain `noindex, nofollow`.
+
 ## Media
 
 Original raster images and videos are preserved in `source-media/` (not deployed).
 `public/assets/` contains WebP images and VP9/Opus WebM videos; SVG vectors and
-the small PNG favicon are retained. Journal images load lazily and decode asynchronously.
+the WebP favicon are retained. Journal images load lazily and decode asynchronously.
 
 To regenerate with Pillow and FFmpeg installed:
 

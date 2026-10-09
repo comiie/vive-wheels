@@ -222,11 +222,11 @@ h1, h2, h3, p { margin: 0; font-weight: 400; }
 
 .story-flow { position: relative; isolation: isolate; background: #0e0f0f; }
 .story-flow > section { --story-progress: 0; top: 0; width: 100%; will-change: transform; }
-.story-flow > .engineering { --engineering-exit: 0; position: absolute; z-index: 2; transform: translate3d(0,calc(var(--engineering-exit) * -100%),0); }
+.story-flow > .engineering { --engineering-exit: 0; position: absolute; z-index: 2; transform: translate3d(0,var(--engineering-translate,calc(var(--engineering-exit) * -100%)),0); }
 .story-flow > .about { position: sticky; z-index: 1; }
 .story-flow > .journal { z-index: 3; box-shadow: 0 -30px 70px rgba(0,0,0,.24); }
 .story-flow > .journal { position: sticky; }
-.story-spacer { position: relative; z-index: 0; height: 100svh; min-height: 860px; pointer-events: none; }
+.story-spacer { position: relative; z-index: 0; height: var(--about-hold-space,100svh); min-height: 860px; pointer-events: none; }
 .story-flow .about-bg { transform: translate3d(0,calc(var(--story-progress) * -28px),0) scale(1.018); transform-origin: center center; will-change: transform; }
 .story-flow .about-intro,
 .story-flow .about-bottom { translate: 0 calc(var(--story-progress) * -10px); }

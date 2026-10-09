@@ -1,9 +1,9 @@
 <script setup lang="ts">
-const asset = useAsset()
+defineProps<{ href?: string }>()
 </script>
 
 <template>
-  <button class="outline-button" type="button">
-    <span><slot /></span><img :src="asset('imgFrame2147238903.svg')" alt="">
-  </button>
+  <component :is="href ? 'a' : 'button'" class="outline-button" :type="href ? undefined : 'button'" :href="href">
+    <span><slot /></span><ArrowIcon />
+  </component>
 </template>

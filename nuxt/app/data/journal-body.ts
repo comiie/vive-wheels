@@ -1,0 +1,25 @@
+// Article body transcribed from Figma 727:2646; supplied editorial placeholder.
+export const journalBody = [
+  "If you've ever watched a 3D laser scanner sweep across a car body or a centuries-old artefact and thought \"but how do I know it's measuring correctly?\" — you're asking exactly the right question.",
+  "A 3D scanner is only as useful as it is accurate. And accuracy, it turns out, is far more nuanced than a single number on a spec sheet. The international standard ISO 10360-13:2021 defines a rigorous framework for evaluating scanner performance — think of it as a full medical examination rather than just height measurement. Four core metrics form the foundation of this evaluation, and understanding them will make you a far savvier buyer, operator, or engineer.",
+  "​",
+  "1. Max Accuracy — How Accurately Can It Measure an Object's Dimensions?",
+  "This is the most fundamental test: scan a precision reference sphere and compare the measured diameter against its nominal value. The gap between those two values is the accuracy.",
+  "A smaller accuracy value means the 3D scanner is giving you diameter readings closer to ground truth. It's the baseline check — the equivalent of verifying that a ruler starts at zero. Without this, nothing else you measure can be trusted",
+  "Why it matters: In quality control for machined parts, even a small deviation in diameter can mean a component falls outside tolerance. This metric is your first line of defence.",
+  "​",
+  "2. Volumetric Accuracy — How Precisely Can It Measure Distances in Space?",
+  "A scanner might nail a single measurement but drift as distances grow. Volumetric accuracy tests whether the scanner maintains geometric accuracy across its entire working volume — not just at one point. It reflects the difference between the length a scanner actually measures and the true, nominal The standard test places a calibrated ball-bar (two precision spheres on a rigid rod) in 12 different positions and orientations within the scanner's field of view, measuring the centre-to-centre distance each time.",
+  "Why it matters: When scanning large workpieces — aircraft fuselages, automotive body panels, large industrial assemblies — you need to trust that a point at one edge of the scan aligns accurately with a point at the opposite edge. Volumetric error tells you exactly how much drift to expect. of the object being scanned.",
+  "​",
+  "3. Sphericity — Can It Capture the True Shape of a Surface?",
+  "Here's where things get genuinely interesting — and where many spec sheets fall short.",
+  "Sphericity measures how faithfully a scanner captures the shape of a surface, not just its size. It's calculated from the thickness of the thinnest concentric shell that can contain all the scanned surface points. A perfect sphere would score zero; real scanners always produce some value above that.",
+  "Imagine we scan a standard reference sphere and get four different results: one comes out as a perfect sphere, one as an orange-like shape with a bumpy surface, and one as an egg-like ellipsoid.",
+  "If you only measure diameter using a best-fit algorithm, all three might return an identical reading of, say, 38.1 mm. They look identical on paper. But sphericity immediately distinguishes them — the orange-peel surface will show a notably higher sphericity error (eg.0.1 mm) than the smooth sphere (eg. 0.02 mm ), and the egg shape higher still (eg. 0.2 mm).Why it matters: In industries like aerospace, medical devices, or precision optics, knowing the shape of a surface — not just its average size — is critical. A scanner with poor sphericity performance is essentially lying to you about surface geometry while reporting plausible-looking diameter numbers.",
+  "​",
+  "4. Flatness — Can It Tell You If a Surface Is Truly Flat?",
+  "Flatness error is the measured deviation between an actual surface and a perfectly flat reference plane, introduced during machining or manufacturing. Simply put: the smaller the value, the smoother the surface. It captures the full picture of surface variation — from fine-scale irregularities like tiny ripples to large-scale distortions like end-to-end warping.",
+  "Why It Matters: Take a linear rail as a real-world example. When flatness error is high, the rail surface becomes uneven, creating excessive friction during sliding and putting strain on internal components. Over time, this compromises both workpiece stability and dimensional precision — exactly the kind of outcome precision manufacturing is designed to avoid.",
+  "The Bottom Line: The lower a scanner's flatness value, the more accurately it reflects the true condition of functional surfaces. That means more trustworthy scan data, better-informed decisions, and fewer costly surprises downstream."
+]

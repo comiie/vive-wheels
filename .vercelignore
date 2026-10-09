@@ -1,0 +1,7 @@
+source-media/
+nuxt/design-reference/
+**/node_modules/
+nuxt/.nuxt/
+nuxt/.output/
+dist/
+*.log

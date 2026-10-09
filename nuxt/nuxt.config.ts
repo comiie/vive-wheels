@@ -13,6 +13,11 @@ export default defineNuxtConfig({
   ],
   runtimeConfig: { public: { assetBase: '/assets/' } },
   typescript: { strict: true },
+  nitro: { prerender: { routes: [
+    ...Array.from({ length: 12 }, (_, i) => `/journal/brand-${i + 1}`),
+    ...Array.from({ length: 23 }, (_, i) => `/journal/engineering-${i + 1}`),
+    ...Array.from({ length: 16 }, (_, i) => `/journal/case-studies-${i + 1}`),
+  ] } },
   app: {
     cdnURL: process.env.NUXT_APP_CDN_URL || '',
     head: {
@@ -25,10 +30,10 @@ export default defineNuxtConfig({
         { name: 'robots', content: productionRelease ? 'index, follow' : 'noindex, nofollow' },
       ],
       link: [
-        { rel: 'icon', type: 'image/png', sizes: '100x100', href: productionRelease ? 'https://cdn-vive.onew.design/media-20260914/favicon.png' : '/favicon.png' },
+        { rel: 'icon', type: 'image/webp', sizes: '100x100', href: '/favicon.webp' },
         ...(productionRelease ? [{ rel: 'canonical' as const, href: 'https://vive.onew.design/' }] : []),
       ],
-      script: [{ innerHTML: "if ('scrollRestoration' in history) history.scrollRestoration = 'manual'; if (location.hash) history.replaceState(null, '', location.pathname + location.search); scrollTo(0, 0);" }],
+      script: [{ innerHTML: "if ('scrollRestoration' in history) history.scrollRestoration = 'manual'; if (performance.getEntriesByType('navigation')[0]?.type === 'reload' && location.hash) history.replaceState(null, '', location.pathname + location.search); scrollTo(0, 0);" }],
     },
   },
 })

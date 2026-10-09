@@ -10,7 +10,13 @@
     "generate": "nuxt generate",
     "typecheck": "nuxt typecheck",
     "test:static": "node scripts/verify-static.mjs",
+    "test:inner": "node scripts/verify-inner-static.mjs",
+    "test:details": "node scripts/verify-product-details.mjs && node scripts/verify-product-interactions.mjs",
+    "test:editorial": "node scripts/verify-editorial-pages.mjs",
     "test:carousel": "node scripts/verify-carousel.mjs",
+    "test:technology": "node scripts/verify-technology-interactions.mjs",
+    "test:about-scroll": "node scripts/verify-about-scroll.mjs",
+    "test:responsive": "node scripts/verify-responsive-motion.mjs",
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
