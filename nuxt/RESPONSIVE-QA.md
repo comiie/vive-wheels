@@ -1,5 +1,35 @@
 # Responsive verification — 2026-10-09
 
+## Follow-up: mobile interactions and homepage dividers
+
+- Homepage product and journal rails now show part of the next card. Catalog
+  wheel/accessory rails use the same smaller-card pattern only below 761px.
+- Mobile language selection is the final row of the expanded navigation.
+- Mobile catalog starts with a closed Sort + Filter disclosure; sorting is
+  inside it. Desktop sidebar and three-column catalog remain intact.
+- Mobile street specifications initially show one configuration with More/Less.
+- Related-accessory next arrow is inset 48px. Validation stages form a horizontal
+  rail with a 1px connecting line. About manufacturing cards are larger with no
+  mobile ruler. FAQ categories are horizontal and sticky below the 64px header.
+- Homepage logo/nav/actions use independent bounded grid columns; logo divider
+  no longer stretches into PRODUCTS and language no longer has duplicate borders.
+- Removed double subtraction of scroll-margin in the shared Lenis anchor handler.
+
+Generated-static Chrome checks: six affected routes at widths 320, 390, 600,
+760, 768, 1100, 1280, 1920 and 2100 (54 page/viewport combinations), no document
+horizontal overflow. At 390px, homepage/catalog cards measure 306px, manufacturing
+cards 318px, and collapsed specifications about 532px high. At 1920px the logo
+divider is at x=302, well before the first navigation item at x=678.
+
+Interaction checks: product/journal keyboard scrolling, filter disclosure and
+NAME A–Z selection, menu language selection, 1→8→1 specification rows, manufacturing
+next arrow (338px scroll), validation stage reveal/connecting line, FAQ sticky
+top=64px and anchor title top≈156px with matching active category.
+
+All static, inner, details, technology, About-scroll, editorial, carousel and
+responsive test commands pass. Source guards cover these mobile layout contracts
+and prevent double anchor offsets. Physical iOS/Android testing remains outstanding.
+
 ## Changes
 
 - Load shared page CSS in a deterministic order, with responsive overrides last.

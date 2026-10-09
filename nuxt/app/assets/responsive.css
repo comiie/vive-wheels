@@ -1,5 +1,7 @@
 /* Loaded after all global page styles in nuxt.config: identical cascade on
    direct visits, client navigation, development and static deployments. */
+.catalog-filter-panel,.catalog-wheel-group,.catalog-wheel-track,.catalog-accessories-track{display:contents}
+.catalog-mobile-toggle,.catalog-sort-mobile,.street-spec-toggle{display:none}
 .is-pinned > :is(.technology-workflow,.technology-materials,.technology-validation,.about-principles,.about-owner-photo){translate:0 var(--pin-offset,0px)}
 .story-flow>:is(.about,.journal){translate:0 var(--pin-offset,0px)}
 .inner-page.inner-page :is(input,textarea,button,a){-webkit-tap-highlight-color:transparent}
@@ -254,8 +256,8 @@ footer.footer.footer-updated .footer-contact :is(a,p),footer.footer.footer-updat
 .inner-page.inner-page .related-accessories>button{padding:0;justify-content:center}
 .inner-page.inner-page .editorial-card-title h3{display:block;-webkit-line-clamp:unset;overflow:visible;height:auto;font-size:clamp(15px,1.1vw,20px);line-height:1.5}
 @media(min-width:1101px){
- .home-page .site-header{grid-template-columns:minmax(180px,1fr) auto minmax(220px,1fr)}
- .home-page .header-actions{justify-self:end;width:clamp(220px,16vw,302px);grid-template-columns:70px 1fr}
+ .home-page .site-header{grid-template-columns:clamp(200px,15.73vw,302px) minmax(0,1fr) clamp(220px,15.73vw,302px)}
+ .home-page .header-actions{justify-self:stretch;width:auto;grid-template-columns:clamp(70px,5.21vw,100px) 1fr;border-left:0}
  .home-page .main-nav{font-size:clamp(12px,.84vw,16px);gap:clamp(22px,3vw,60px)}
  .home-page .engineering{padding-top:clamp(64px,9svh,100px)}
  .home-page .engineering-panel{position:absolute;left:calc(var(--pad) + 170px);right:var(--pad);top:200px;width:auto;height:calc(100% - 300px);margin:0;min-height:0}
@@ -417,4 +419,74 @@ footer.footer.footer-updated .footer-contact :is(a,p),footer.footer.footer-updat
 @media(max-height:599px) and (max-width:1100px){
  .home-page .hero.screen{min-height:580px}
  .home-page .hero-copy{top:110px}
+}
+
+/* Mobile interaction layouts. Desktop rails retain their original grid cells. */
+@media(max-width:1100px){
+ .inner-page.inner-page .inner-header-actions{display:none}
+ .mobile-menu-language{display:grid;grid-template-columns:minmax(0,1fr) 100px;align-items:start;gap:16px;padding-top:20px;font-size:14px}
+ .mobile-menu-language>span{padding-top:12px}
+ .mobile-menu-language .language-menu{height:auto}
+ .mobile-menu-language .language-menu .dark-select-trigger{height:44px;border:1px solid #fff3;font-size:14px}
+ .mobile-menu-language .dark-select-panel{position:static}
+ .mobile-menu-language .language-menu .dark-select-list li{height:44px;font-size:14px}
+}
+@media(max-width:760px){
+ .home-page .product-row{gap:16px}
+ .home-page .product-card{width:calc(100vw - 84px);flex-basis:calc(100vw - 84px);max-width:420px}
+ .home-page .journal-grid{display:flex;justify-content:flex-start;gap:16px;overflow-x:auto;overflow-y:hidden;margin-inline:calc(-1 * var(--pad));padding-inline:var(--pad);scroll-padding-inline:var(--pad);scroll-snap-type:x proximity;overscroll-behavior-x:contain;scrollbar-width:none;touch-action:pan-x pan-y}
+ .home-page .journal-grid::-webkit-scrollbar{display:none}
+ .home-page .journal-card{flex:0 0 min(420px,calc(100vw - 84px));min-width:0;scroll-snap-align:start;--reveal-delay:0s!important}
+ .home-page .journal-card .journal-image{height:auto;aspect-ratio:450/520}
+ .inner-page.inner-page .catalog-sort-desktop{display:none}
+ .inner-page.inner-page .catalog-mobile-toggle{display:flex;width:100%;justify-content:center;margin-top:24px;min-height:48px;font-size:15px}
+ .inner-page.inner-page .catalog-layout{margin-top:24px}
+ .catalog-filter-panel{display:none}
+ .catalog-filter-panel.is-open{display:block}
+ .inner-page.inner-page .catalog-sort-mobile{display:block;grid-column:1/-1;width:100%;height:44px}
+ .inner-page.inner-page .catalog-filters{opacity:1;transform:none}
+ .inner-page.inner-page .catalog-grid{display:block;container-type:normal;min-width:0}
+ .catalog-wheel-group{display:block}
+ .inner-page.inner-page .catalog-introduction{--u:1px;height:auto;padding:28px 0 36px}
+ .inner-page.inner-page .catalog-introduction-logo{width:min(230px,100%);height:auto;aspect-ratio:283.742/52.047;margin-inline:auto}
+ .inner-page.inner-page .catalog-introduction p{font-size:14px;line-height:1.65;margin-top:24px}
+ .inner-page.inner-page :is(.catalog-wheel-track,.catalog-accessories-track){display:flex;gap:16px;overflow-x:auto;overflow-y:hidden;margin-inline:-24px;padding-inline:24px;padding-bottom:8px;scroll-padding-inline:24px;scroll-snap-type:x proximity;overscroll-behavior-x:contain;scrollbar-width:none;touch-action:pan-x pan-y}
+ .catalog-wheel-track::-webkit-scrollbar,.catalog-accessories-track::-webkit-scrollbar{display:none}
+ .inner-page.inner-page :is(.catalog-card,.catalog-accessory-card){--u:calc(min(420px,100vw - 84px) / 402);width:calc(402 * var(--u));flex:0 0 calc(402 * var(--u));scroll-snap-align:start}
+ .catalog-wheel-group+.catalog-wheel-group{margin-top:32px}
+ .street-specifications:not(.is-expanded) .street-spec-extra{display:none}
+ .inner-page.inner-page .street-specifications{padding-block:32px;scroll-margin-top:72px}
+ .inner-page.inner-page .street-specifications h2{font-size:clamp(22px,5.8vw,30px)}
+ .street-specifications>.outline-button{margin-top:16px}
+ .street-specifications .street-spec-grid{grid-template-columns:1fr;margin-top:24px;gap:32px}
+ .street-specifications .street-spec-grid h3{font-size:22px;padding-bottom:12px}
+ .street-specifications .street-spec-grid dl{margin:16px 0 0;font-size:13px;line-height:1.5}
+ .street-specifications .street-spec-grid dl>div{margin-top:6px}
+ .street-spec-toggle{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:44px;margin-top:20px;border:0;background:none;color:#fff;font:inherit;font-size:14px;cursor:pointer}
+ .inner-page.inner-page .related-next{right:48px}
+ .inner-page.inner-page .technology-validation-stages{overflow-x:auto;overflow-y:hidden;scroll-snap-type:x proximity;scrollbar-width:none;overscroll-behavior-x:contain;touch-action:pan-x pan-y;margin-inline:-20px;padding-inline:20px;scroll-padding-inline:20px}
+ .technology-validation-stages::-webkit-scrollbar{display:none}
+ .inner-page.inner-page .technology-validation-stages ol{display:flex;width:max-content;gap:0;padding-block:0 8px}
+ .inner-page.inner-page .technology-validation-stages ol::before{content:'';position:absolute;top:4px;left:0;right:0;height:1px;background:#ffffff60}
+ .inner-page.inner-page .technology-validation-stages li{flex:0 0 132px;width:132px;padding:0 12px;scroll-snap-align:start;font-size:12px;line-height:1.5;position:relative}
+ .inner-page.inner-page .technology-validation-stages i{margin-bottom:16px}
+ .inner-page.inner-page .about-manufacturing figure{width:min(420px,calc(100vw - 72px));height:auto;aspect-ratio:380/450;flex-shrink:0}
+ .inner-page.inner-page .about-ruler{display:none}
+ .inner-page.inner-page .about-engineering-bottom{justify-content:flex-end}
+ .inner-page.faq-page .inner-header{transform:none;background:#0e0f0f}
+ .inner-page.faq-page .faq-page-sidebar{display:contents}
+ .inner-page.faq-page .faq-page-sidebar nav{position:sticky;top:64px;z-index:8;display:flex;flex-direction:row;width:auto;gap:10px;margin:28px -24px 0;padding:12px 24px;overflow-x:auto;scroll-padding-inline:24px;scrollbar-width:none;overscroll-behavior-x:contain;background:#0e0f0f;border-bottom:1px solid #fff2;opacity:1;transform:none}
+ .faq-page-sidebar nav::-webkit-scrollbar{display:none}
+ .inner-page.faq-page .faq-page-sidebar nav a{flex:none;width:auto;white-space:nowrap;padding-inline:16px;min-height:44px;font-size:12px}
+ .inner-page.faq-page .faq-page-groups{margin-top:32px}
+ .inner-page.faq-page .faq-page-group{scroll-margin-top:156px}
+}
+@media(max-width:760px) and (max-height:700px){
+ .inner-page.inner-page .street-specifications{padding-block:24px}
+ .street-specifications>.outline-button{margin-top:12px}
+ .street-specifications .street-spec-grid{margin-top:20px}
+ .street-specifications .street-spec-grid h3{padding-bottom:8px}
+ .street-specifications .street-spec-grid dl{margin-top:12px}
+ .street-specifications .street-spec-grid dl>div{margin-top:4px}
+ .street-spec-toggle{margin-top:12px}
 }

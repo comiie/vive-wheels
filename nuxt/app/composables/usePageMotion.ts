@@ -22,8 +22,9 @@ export function usePageMotion(modalOpen: Ref<boolean>) {
     event.preventDefault()
     history.pushState(null, '', url.hash)
     const duration = Number(link.dataset.anchorDuration) || 1.32
-    const offset = -parseFloat(getComputedStyle(target).scrollMarginTop || '0')
-    lenis?.scrollTo(target, { immediate: reducedMotion, duration, offset })
+    // Lenis already subtracts the target's CSS scroll-margin. Applying it a
+    // second time leaves mobile FAQ sections below their sticky navigation.
+    lenis?.scrollTo(target, { immediate: reducedMotion, duration })
   }
   const resetToHero = () => {
     lenis?.scrollTo(0, { immediate: true })

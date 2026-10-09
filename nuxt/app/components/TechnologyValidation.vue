@@ -63,7 +63,7 @@ onBeforeUnmount(() => { stop(); observer?.disconnect(); media?.removeEventListen
       <div id="validation-panel" class="technology-validation-panel" role="tabpanel" :aria-labelledby="`validation-tab-${validation}`" :aria-live="paused ? 'polite' : 'off'">
         <div :key="validation" class="validation-slide-content">
           <h2><span>（{{ validationSlides[validation]!.label }}）</span>{{ validationSlides[validation]!.title }}</h2>
-          <div class="technology-validation-stages"><img :src="asset('technology/8d855.svg')" alt="" /><ol><li v-for="(stage, index) in validationSlides[validation]!.stages" :key="stage" :style="{ '--stage': index }"><i aria-hidden="true" />{{ stage }}</li></ol></div>
+          <div class="technology-validation-stages" role="region" aria-label="Validation process" tabindex="0"><img :src="asset('technology/8d855.svg')" alt="" /><ol><li v-for="(stage, index) in validationSlides[validation]!.stages" :key="stage" :style="{ '--stage': index }"><i aria-hidden="true" />{{ stage }}</li></ol></div>
         </div>
       </div>
       <div :key="`links-${validation}`" class="technology-series"><a v-for="link in validationSlides[validation]!.links" :key="link.label" :href="link.href" class="wipe-control"><span>{{ link.label }}</span></a></div>

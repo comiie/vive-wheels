@@ -14,7 +14,7 @@ const { progress, dragging, progressDragging, updateProgress, startDrag, moveDra
         <button v-for="filter in ['OFF-ROAD', 'STREET', 'RACING', 'ACCESSORIES']" :key="filter" :class="{ active: activeFilter === filter }" type="button" @click="activeFilter = filter"><span>{{ filter }}</span></button>
       </div>
     </div>
-    <div ref="viewport" class="product-viewport" :class="{ 'is-dragging': dragging }" @scroll="updateProgress" @dragstart.prevent
+    <div ref="viewport" class="product-viewport" role="region" aria-label="Product collection" tabindex="0" :class="{ 'is-dragging': dragging }" @scroll="updateProgress" @dragstart.prevent @keydown="onKeydown"
       @pointerdown="startDrag" @pointermove="moveDrag" @pointerup="finishDrag" @pointercancel="cancelDrag" @lostpointercapture="cancelDrag">
       <div class="product-row"><ProductCard v-for="(item, index) in repeatedProducts" :key="`${index}-${item.variant}`" :item="item" /></div>
     </div>

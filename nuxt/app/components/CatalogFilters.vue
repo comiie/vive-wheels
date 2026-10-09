@@ -26,6 +26,7 @@ const collapse = (name: string) => { collapsed.value = toggle(collapsed.value, n
 </script>
 <template>
   <aside class="catalog-filters" aria-label="Wheel filters" data-reveal="lift" data-reveal-group="catalog-entry">
+    <slot name="sort" />
     <button type="button" class="catalog-clear wipe-control is-filled" @click="clear">CLEAR ALL</button>
     <div v-if="preferences.length || construction.length" class="catalog-chips">
       <span v-for="value in [...preferences, ...construction]" :key="value">{{ value }}<button type="button" :aria-label="`Remove ${value}`" @click="construction.includes(value) ? selectConstruction(value) : choose(value)"><img :src="asset('inner-pages/b0e2a.svg')" alt=""></button></span>

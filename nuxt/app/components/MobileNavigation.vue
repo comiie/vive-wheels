@@ -14,6 +14,7 @@ onBeforeUnmount(() => document.removeEventListener('keydown', escape))
     <summary aria-label="Main menu">MENU</summary>
     <nav aria-label="Mobile navigation">
       <a v-for="[label, href] in [['PRODUCTS','/products'],['TECHNOLOGY','/technology'],['ABOUT','/about'],['JOURNAL','/journal'],['FAQS','/faqs'],['CONTACT US','/contact']]" :key="href" :href="href" @click="close">{{ label }}</a>
+      <div class="mobile-menu-language"><span>LANGUAGE</span><LanguageMenu /></div>
     </nav>
   </details>
 </template>

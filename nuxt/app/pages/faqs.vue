@@ -1,6 +1,17 @@
 <script setup lang="ts">
 useHead({ title: 'Frequently Asked Questions — VIVE' })
 const activeCategory = ref(0)
+const categoryNavigation = ref<HTMLElement | null>(null)
+watch(activeCategory, async () => {
+  await nextTick()
+  if (!window.matchMedia('(max-width:760px)').matches) return
+  const nav = categoryNavigation.value
+  const active = nav?.querySelector<HTMLElement>('[aria-current="location"]')
+  if (!nav || !active) return
+  const item = active.getBoundingClientRect()
+  const bounds = nav.getBoundingClientRect()
+  if (item.left < bounds.left || item.right > bounds.right) nav.scrollTo({ left: nav.scrollLeft + item.left - bounds.left - 24, behavior: 'smooth' })
+})
 const expanded = ref<string | null>(null)
 const categories = [
   { id: 'product-basics', title: 'Product Basics' },
@@ -41,7 +52,7 @@ onBeforeUnmount(() => { window.removeEventListener('scroll', syncCategory); wind
     <div class="faq-page-layout">
       <aside class="faq-page-sidebar">
         <MotionTitle as="h1" text="FREQUENTLY ASKED QUESTIONS" data-reveal-group="faq-entry" />
-        <nav aria-label="FAQ categories" data-reveal="fade" data-reveal-group="faq-entry">
+        <nav ref="categoryNavigation" aria-label="FAQ categories" data-reveal="fade" data-reveal-group="faq-entry">
           <a v-for="(category, i) in categories" :key="category.id" :href="`#${category.id}`" data-anchor-duration="0.6" :aria-current="activeCategory === i ? 'location' : undefined"><span>{{ category.title }}</span></a>
         </nav>
       </aside>

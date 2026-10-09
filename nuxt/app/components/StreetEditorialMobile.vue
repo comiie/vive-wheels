@@ -1,5 +1,11 @@
 <script setup lang="ts">
 const asset = useAsset()
+const specsExpanded = ref(false)
+const specifications = ref<HTMLElement | null>(null)
+const toggleSpecifications = () => {
+  specsExpanded.value = !specsExpanded.value
+  if (!specsExpanded.value) specifications.value?.scrollIntoView({ block: 'start', behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' })
+}
 // Same copy, photography and specifications as the desktop artboard, in reading order.
 const specs = [
   { size:'15×7J',face:'f1',inset:35,clearance:43,price:'74,000' },
@@ -24,9 +30,10 @@ const values = [
    <MotionTitle text="Engineered Beyond Design." /><p data-reveal="lift">Behind every VI-1 is a development process that connects digital engineering, material selection, manufacturing and validation.</p>
    <div class="street-engineering-grid"><figure v-for="(_,i) in 4" :key="i" data-reveal="lift"><div class="street-engineering-image"><img :src="asset('product-details/ec3f8.webp')" alt="R-01 engineering detail" loading="lazy" :style="{left: ['0','-102.91%','-206.19%','0'][i], top: i === 3 ? '-103.48%' : '0'}" /></div><figcaption>R-01</figcaption></figure></div>
   </section>
-  <section class="street-specifications">
+  <section ref="specifications" class="street-specifications" :class="{ 'is-expanded': specsExpanded }">
    <MotionTitle text="VI-1 Specifications" /><ArrowButton href="mailto:info@vivewheels.com?subject=VI-1%20Specifications">LEARN MORE</ArrowButton>
-   <div class="street-spec-grid"><article v-for="(spec,i) in [...specs,...specs.slice(2),...specs.slice(0,2)]" :key="i" data-reveal="lift"><h3>{{ spec.size }}</h3><dl><div v-for="[label,value] in [['FACE',spec.face],['INSET',spec.inset],['HUB CLEARANCE (mm)',spec.clearance],['HOLE',4],['P.C.D.',100],['HUB BORE (φ)',65],['DRILL (φ)','29-13'],['COLOR','bl'],['PRICE',`¥${spec.price}`]]" :key="label"><dt>{{ label }}</dt><dd>{{ value }}</dd></div></dl></article></div>
+   <div id="street-spec-list" class="street-spec-grid"><article v-for="(spec,i) in [...specs,...specs.slice(2),...specs.slice(0,2)]" :key="i" :class="{ 'street-spec-extra': i > 0 }" data-reveal="lift"><h3>{{ spec.size }}</h3><dl><div v-for="[label,value] in [['FACE',spec.face],['INSET',spec.inset],['HUB CLEARANCE (mm)',spec.clearance],['HOLE',4],['P.C.D.',100],['HUB BORE (φ)',65],['DRILL (φ)','29-13'],['COLOR','bl'],['PRICE',`¥${spec.price}`]]" :key="label"><dt>{{ label }}</dt><dd>{{ value }}</dd></div></dl></article></div>
+   <button class="street-spec-toggle" type="button" :aria-expanded="specsExpanded" aria-controls="street-spec-list" @click="toggleSpecifications">{{ specsExpanded ? 'LESS' : 'MORE' }} <ArrowIcon :direction="specsExpanded ? 'up' : 'down'" /></button>
   </section>
   <section class="street-values"><article v-for="value in values" :key="value.title" data-reveal="lift"><img :src="asset(`product-details/${value.image}.svg`)" alt="" loading="lazy" /><h3>{{ value.title }}</h3><p>{{ value.text }}</p></article></section>
  </div>
