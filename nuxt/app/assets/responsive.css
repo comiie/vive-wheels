@@ -1,6 +1,7 @@
 /* Loaded after all global page styles in nuxt.config: identical cascade on
    direct visits, client navigation, development and static deployments. */
 .catalog-filter-panel,.catalog-wheel-group,.catalog-wheel-track,.catalog-accessories-track{display:contents}
+.catalog-card-media{display:contents}
 .catalog-mobile-toggle,.catalog-sort-mobile,.street-spec-toggle{display:none}
 .is-pinned > :is(.technology-workflow,.technology-materials,.technology-validation,.about-principles,.about-owner-photo){translate:0 var(--pin-offset,0px)}
 .story-flow>:is(.about,.journal){translate:0 var(--pin-offset,0px)}
@@ -387,9 +388,9 @@ footer.footer.footer-updated .footer-contact :is(a,p),footer.footer.footer-updat
  .inner-page.inner-page .catalog-card-colors button{min-width:24px;min-height:24px}
  .inner-page.inner-page .journal-article>h1{font-size:clamp(26px,7.2vw,36px);overflow-wrap:normal}
  .inner-page.inner-page .contact-map{height:300px}
- footer.footer.footer-updated{min-height:0;height:auto}
- footer.footer.footer-updated .footer-content{grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);gap:40px 20px;padding:48px 20px 180px}
- footer.footer.footer-updated .footer-mark{height:140px;width:100%;left:0;object-fit:contain;object-position:bottom}
+ footer.footer.footer-updated,.inner-page.inner-page .footer.footer-updated{min-height:0;height:auto}
+ footer.footer.footer-updated .footer-content,.inner-page.inner-page .footer.footer-updated .footer-content{grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);gap:40px 20px;padding:48px 20px 32px}
+ footer.footer.footer-updated .footer-mark{display:block;position:static;height:auto;width:100%;aspect-ratio:1920/376;object-fit:contain;opacity:1}
  footer.footer.footer-updated .footer-nav{gap:22px;height:auto}
  footer.footer.footer-updated .footer-nav a{min-height:28px}
  footer.footer.footer-updated .footer-contact{height:auto;gap:24px;justify-content:flex-start}
@@ -446,14 +447,27 @@ footer.footer.footer-updated .footer-contact :is(a,p),footer.footer.footer-updat
  .inner-page.inner-page .catalog-sort-mobile{display:block;grid-column:1/-1;width:100%;height:44px}
  .inner-page.inner-page .catalog-filters{opacity:1;transform:none}
  .inner-page.inner-page .catalog-grid{display:block;container-type:normal;min-width:0}
- .catalog-wheel-group{display:block}
- .inner-page.inner-page .catalog-introduction{--u:1px;height:auto;padding:28px 0 36px}
- .inner-page.inner-page .catalog-introduction-logo{width:min(230px,100%);height:auto;aspect-ratio:283.742/52.047;margin-inline:auto}
- .inner-page.inner-page .catalog-introduction p{font-size:14px;line-height:1.65;margin-top:24px}
- .inner-page.inner-page :is(.catalog-wheel-track,.catalog-accessories-track){display:flex;gap:16px;overflow-x:auto;overflow-y:hidden;margin-inline:-24px;padding-inline:24px;padding-bottom:8px;scroll-padding-inline:24px;scroll-snap-type:x proximity;overscroll-behavior-x:contain;scrollbar-width:none;touch-action:pan-x pan-y}
- .catalog-wheel-track::-webkit-scrollbar,.catalog-accessories-track::-webkit-scrollbar{display:none}
- .inner-page.inner-page :is(.catalog-card,.catalog-accessory-card){--u:calc(min(420px,100vw - 84px) / 402);width:calc(402 * var(--u));flex:0 0 calc(402 * var(--u));scroll-snap-align:start}
+ .inner-page.inner-page :is(.catalog-wheel-group,.catalog-accessories-track){display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 16px;align-items:start;container-type:inline-size}
+ .inner-page.inner-page .catalog-wheel-track{display:contents}
+ .inner-page.inner-page .catalog-introduction{--u:1px;height:auto;padding:24px 0 0}
+ .inner-page.inner-page .catalog-introduction-logo{width:min(230px,100%);height:auto;aspect-ratio:283.742/52.047;margin:0 auto}
+ .inner-page.inner-page .catalog-introduction p{font-size:clamp(11px,2.8vw,14px);line-height:1.65;letter-spacing:0;margin-top:24px}
+ .inner-page.inner-page :is(.catalog-card,.catalog-accessory-card){--u:calc((100cqw - 16px) / 804);width:100%;min-width:0}
+ .inner-page.inner-page .catalog-card{height:auto;background:#202020;padding-bottom:8px}
+ .inner-page.inner-page .catalog-accessory-card{height:auto;min-height:calc(531 * var(--u));padding-bottom:16px}
+ .inner-page.inner-page .catalog-card-media{display:block;position:relative;height:calc(429 * var(--u))}
+ .inner-page.inner-page .catalog-card-shape{display:none}
+ .inner-page.inner-page .catalog-card-badge{font-size:10px;line-height:16px;height:auto;padding:2px 8px;border-width:1px}
+ .inner-page.inner-page .catalog-card-copy{position:static;text-align:center;padding:10px 6px 0}
+ .inner-page.inner-page .catalog-card-copy h2{font-size:clamp(14px,3.6vw,20px);line-height:1.25;overflow-wrap:anywhere}
+ .inner-page.inner-page .catalog-card-copy p{font-size:11px;line-height:1.5;margin-top:6px}
+ .inner-page.inner-page .catalog-card-colors{position:static;justify-content:center;gap:2px;width:auto;height:44px;margin:6px auto 0}
+ .inner-page.inner-page .catalog-card-colors button{position:relative;width:36px;height:44px;min-width:0;min-height:0;border:6px solid #202020;border-block-width:10px;border-radius:50%}
+ .inner-page.inner-page .catalog-card-colors button[aria-pressed=true]{outline:none}
+ .inner-page.inner-page .catalog-card-colors button[aria-pressed=true]::after{content:'';position:absolute;inset:-3px;border:1px solid #aaa;border-radius:50%;pointer-events:none}
  .catalog-wheel-group+.catalog-wheel-group{margin-top:32px}
+ .inner-page.inner-page .technology-material-panel>p{top:50%;bottom:auto;transform:translateY(-50%);text-align:center}
+ .inner-page.inner-page .technology-material-display .technology-material-panel .inner-shade{background:linear-gradient(180deg,#0003,#0009 50%,#0005)}
  .street-specifications:not(.is-expanded) .street-spec-extra{display:none}
  .inner-page.inner-page .street-specifications{padding-block:32px;scroll-margin-top:72px}
  .inner-page.inner-page .street-specifications h2{font-size:clamp(22px,5.8vw,30px)}

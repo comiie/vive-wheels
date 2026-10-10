@@ -1,4 +1,25 @@
-# Responsive verification — 2026-10-09
+# Responsive verification — 2026-10-10
+
+## Mobile refinement: footer, catalog and materials
+
+- At <=760px, the footer uses the original 1920×376 wordmark rather than the
+  vertically stretched inner-page source. It is in normal flow with automatic
+  height; the copyright-to-image gap is 32px, without the old 300px reserve.
+- Mobile wheel groups now use two columns: introduction in the first cell,
+  first wheel alongside it, subsequent products in paired rows. Cards have
+  natural-height copy and a separate proportional media area. Accessories use
+  the same two-column rhythm. Homepage product rails remain unchanged.
+- At 320, 390, 440 and 760px, the active material paragraph's center exactly
+  matches its image center after the transition. Desktop bottom alignment is
+  retained (checked at 800 and 1440px).
+- Chrome emulation checked at 320, 375, 390, 440, 600, 760, 800, 1000, 1440,
+  1920 and 2100px: no document horizontal overflow. At 440px, product columns
+  measure 188px each with a 16px gap, paired cards share their layout top.
+  Finish selection and accessory-category switching were exercised successfully.
+- Static generation completed (122 routes); static, inner, details,
+  technology and responsive checks passed. This is local browser emulation,
+  not physical-device Safari validation; the online share has not been replaced.
+
 
 ## Follow-up: button contrast, tablet lines and FAQ icons
 

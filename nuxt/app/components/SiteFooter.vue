@@ -21,11 +21,15 @@ const asset = useAsset()
         <a href="#footer">Privacy Policy</a><p>© 2026,VIVE. All Rights Reserved.</p>
       </div>
     </div>
-    <img class="footer-mark" :src="asset(props.designPreview ? 'inner-pages/3e6f2.webp' : 'imgFooterMark.webp')" alt="">
+    <picture class="footer-mark-picture">
+      <source media="(max-width: 760px)" :srcset="asset('imgFooterMark.webp')">
+      <img class="footer-mark" :src="asset(props.designPreview ? 'inner-pages/3e6f2.webp' : 'imgFooterMark.webp')" alt="">
+    </picture>
   </footer>
 </template>
 
 <style>
+.footer-mark-picture{display:contents}
 footer.footer.footer-updated{--footer-u:var(--u,1px);height:calc(792 * var(--footer-u))}
 .footer.footer-updated .footer-content{position:relative;inset:auto;display:grid;grid-template-columns:calc(219 * var(--footer-u)) 1fr calc(297 * var(--footer-u));padding:calc(80 * var(--footer-u));align-items:stretch}
 .footer.footer-updated .footer-nav,.footer.footer-updated .footer-contact,.footer.footer-updated .footer-social{position:relative;inset:auto;width:auto;height:calc(256 * var(--footer-u));margin:0}
