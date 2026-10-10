@@ -1,6 +1,18 @@
 <script setup lang="ts">
 import { stats } from '../data/content'
 const asset = useAsset()
+const section = ref<HTMLElement | null>(null)
+const loadVideo = ref(false)
+let videoObserver: IntersectionObserver | undefined
+onMounted(() => {
+  videoObserver = new IntersectionObserver(([entry]) => {
+    if (!entry?.isIntersecting) return
+    loadVideo.value = true
+    videoObserver?.disconnect()
+  }, { rootMargin: '600px' })
+  if (section.value) videoObserver.observe(section.value)
+})
+onBeforeUnmount(() => videoObserver?.disconnect())
 const counters = stats.map(([number, label]) => {
   const match = number.match(/^([\d.]+)(.*)$/)!
   const target = match[1]!
@@ -9,8 +21,8 @@ const counters = stats.map(([number, label]) => {
 </script>
 
 <template>
-  <section id="about" class="about screen">
-    <video class="about-bg" :src="asset('who-we-are-bg.webm')" autoplay muted loop playsinline preload="auto" aria-hidden="true" />
+  <section ref="section" id="about" class="about screen">
+    <video class="about-bg" :src="loadVideo ? asset('who-we-are-bg.webm') : undefined" autoplay muted loop playsinline preload="none" aria-hidden="true" />
     <div class="about-overlay" />
     <div class="about-intro" data-reveal="lift"><h2 class="reveal-title" data-reveal="words" aria-label="WHO WE ARE"><RevealWords text="WHO WE ARE" /></h2><p>Premium aluminum alloy wheels crafted for performance</p><ArrowButton>ABOUT US</ArrowButton></div>
     <div class="about-bottom" data-reveal="lift">

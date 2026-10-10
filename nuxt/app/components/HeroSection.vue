@@ -3,6 +3,14 @@ const asset = useAsset()
 const props = defineProps<{ videoOpen?: boolean }>()
 const bannerVideo = ref<HTMLVideoElement | null>(null)
 const emit = defineEmits<{ openVideo: [] }>()
+// The native video starts parsing in SSR; the poster is discovered in <head>.
+useHead({ link: [{ rel: 'preload', as: 'image', href: asset('vive-factory-poster.webp'), fetchpriority: 'high' }] })
+function startBanner() {
+  const video = bannerVideo.value
+  if (!video || props.videoOpen) return
+  video.muted = true
+  void video.play().catch(() => { /* Keep the poster if the browser blocks autoplay. */ })
+}
 watch(() => props.videoOpen, (open) => {
   if (open) bannerVideo.value?.pause()
   else void bannerVideo.value?.play().catch(() => { /* The poster remains visible if autoplay is blocked. */ })
@@ -12,11 +20,12 @@ watch(() => props.videoOpen, (open) => {
 <template>
   <section id="top" class="hero screen">
     <video ref="bannerVideo" class="hero-bg" :poster="asset('vive-factory-poster.webp')"
-      autoplay muted loop playsinline preload="auto" aria-label="VIVE wheel manufacturing — 20 second preview">
-      <source :src="asset('vive-factory-banner-mobile-20s.webm')" type="video/webm" media="(max-width: 760px)">
-      <source :src="asset('vive-factory-banner-20s.webm')" type="video/webm">
+      autoplay muted loop playsinline preload="auto" @loadeddata="startBanner" aria-label="VIVE wheel manufacturing — 20 second preview">
+      <source :src="asset('vive-factory-banner-mobile-20s-fast.webm')" type="video/webm" media="(max-width: 760px)">
+      <source :src="asset('vive-factory-banner-20s-fast.webm')" type="video/webm">
     </video>
     <div class="hero-shade" />
+    <div class="hero-black-overlay" aria-hidden="true" />
     <img class="hero-top-fade" :src="asset('imgRectangle1430107304.webp')" alt="">
     <SiteHeader />
     <div class="hero-copy">
@@ -35,3 +44,9 @@ watch(() => props.videoOpen, (open) => {
     </button>
   </section>
 </template>
+
+<style scoped>
+.hero-black-overlay { position: absolute; inset: 0; background: rgb(0 0 0 / 10%); pointer-events: none; }
+/* Paint the poster immediately rather than fading in the media for 1.5s. */
+.hero-bg { animation: none; }
+</style>

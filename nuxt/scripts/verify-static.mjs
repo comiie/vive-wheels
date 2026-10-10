@@ -26,7 +26,10 @@ assert.equal((html.match(/data-count-target=/g) ?? []).length, 4, 'Keep four ani
 assert.match(html, /--engineering-mask:/, 'Render SVG masks before hydration')
 assert.match(html, /--journal-mask:/, 'Render journal mask before hydration')
 assert.match(html, /is-preview/, 'The engineering stack must have a persistent preview layer')
-assert.match(html, /who-we-are-bg.webm/, 'Retain the about background video')
+const aboutVideo = html.match(/<video[^>]*class="about-bg"[^>]*>/)?.[0]
+assert.ok(aboutVideo, 'Retain the about background video element')
+assert.doesNotMatch(aboutVideo, /\ssrc=/, 'Do not fetch the below-fold video during initial SSR load')
+assert.ok(existsSync(resolve(root, 'assets/who-we-are-bg.webm')), 'Keep the lazy-loaded about video in the build')
 const files = new Set([...html.matchAll(/(?:src|href|poster)="(\/[^"#?]+)"/g)].map((match) => match[1]))
 for (const file of files) assert.ok(existsSync(resolve(root, `.${file}`)), `Missing static asset: ${file}`)
 assert.match(html, /\.webm/, 'Use the compressed WebM video')

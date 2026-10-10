@@ -10,7 +10,7 @@ Original MP4 is untouched: 3840×2160, 25 fps, approximately 100.67 seconds, ste
 | --- | ---: | --- |
 | vive-factory-full-4k.webm | 97,608,222 | VP9 CRF 35, 3840×2160, 25 fps; Opus stereo 160 kb/s |
 | vive-factory-banner-20s.webm | 13,383,200 | VP9 CRF 30, 2560×1094, 500 frames, no audio |
-| vive-factory-banner-mobile-20s.webm | 6,154,072 | VP9 CRF 30, 1280×548 encoded, 500 frames, no audio |
+| vive-factory-banner-mobile-20s.webm | 6,154,072 | VP9 CRF 30, 1280×546 encoded, 500 frames, no audio |
 | vive-factory-poster.webp | 82,764 | Source at 00:03, WebP quality 90 |
 
 Only banner/poster remove the original 260-pixel letterbox bars. Browser display dimensions may differ slightly from encoded dimensions due to preserved sample aspect ratio. Full film preserves the original frame. WebM is lossy; resolution retention is not a lossless-quality claim.
@@ -26,3 +26,11 @@ Only banner/poster remove the original 260-pixel letterbox bars. Browser display
 - Nuxt generate: 122 routes. Static, inner, responsive, and product-detail checks pass. Typecheck exits 0 with the existing vue-router/volar plugin resolution warning.
 
 Deployment target: existing `codex/inner-pages-static` Preview branch only. No production or sharing-policy changes.
+
+## Startup follow-up
+
+- Added a separate 10% black overlay above the existing color shade; copy and controls remain above it.
+- Removed the 1.5-second media entrance fade. Poster preloads at high priority from the SSR head.
+- `-fast.webm` variants are stream copies (no re-encoding or quality reduction), with front-loaded cues and 250ms / 256KiB cluster limits.
+- About video has no source until its section is within 600px of the viewport. Product images below the hero use native lazy loading.
+- Actual first-frame timing still depends on connection and browser autoplay policy; no guaranteed instant playback claim.

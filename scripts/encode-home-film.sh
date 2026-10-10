@@ -19,6 +19,13 @@ for width in 2560 1280; do
     -c:v libvpx-vp9 -crf 30 -b:v 0 -row-mt 1 -tile-columns 2 \
     -cpu-used 3 -threads 4 -pix_fmt yuv420p -g 50 "$output"
 done
+# Stream-copy only: keep image quality and move indexes to the front, with
+# smaller clusters so browsers can begin consuming the first frames sooner.
+for variant in banner banner-mobile; do
+  "$FFMPEG" -hide_banner -nostdin -i "public/assets/vive-factory-$variant-20s.webm" \
+    -c copy -cluster_time_limit 250 -cluster_size_limit 262144 -cues_to_front 1 \
+    "public/assets/vive-factory-$variant-20s-fast.webm"
+done
 "$FFMPEG" -hide_banner -nostdin -ss 3 -i "$SOURCE" -frames:v 1 \
   -vf 'crop=3840:1640:0:260,scale=1920:-2:flags=lanczos' \
   -c:v libwebp -quality 90 public/assets/vive-factory-poster.webp
