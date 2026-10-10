@@ -1,5 +1,19 @@
 # Responsive verification — 2026-10-10
 
+## Shared navigation and FAQ category hierarchy
+
+- Home and inner headers now opt into one shared geometry stylesheet: equal
+  desktop side columns, identical link gaps, logo crop, language/contact cells,
+  and 64px mobile headers with 20px side padding. Scroll behavior is unchanged.
+- Mobile/tablet FAQ category headings use 18px / 1.4 line height, overriding
+  the generic mobile h2 rule; the page title retains its existing hierarchy.
+- Chrome viewport checks at 320, 390, 440, 760, 800, 1000, 1100, 1101, 1440,
+  1920 and 2100px found no document horizontal overflow. Home/FAQ logo and
+  header boxes match; desktop links use the same geometry. At 390px, expanded
+  menus match exactly (six 49px rows, 399px panel), including bottom language.
+- Static generation and static, inner-page and responsive regression checks
+  passed. Tests are browser emulation, not physical-device Safari validation.
+
 ## Mobile refinement: footer, catalog and materials
 
 - At <=760px, the footer uses the original 1920×376 wordmark rather than the

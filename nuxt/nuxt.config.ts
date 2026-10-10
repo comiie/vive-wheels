@@ -17,6 +17,7 @@ export default defineNuxtConfig({
     '~/assets/technology.css',
     '~/assets/editorial.css',
     '~/assets/responsive.css',
+    '~/assets/navigation.css',
   ],
   runtimeConfig: { public: { assetBase: '/assets/' } },
   typescript: { strict: true },

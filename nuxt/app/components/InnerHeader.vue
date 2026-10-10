@@ -19,7 +19,7 @@ onBeforeUnmount(() => window.removeEventListener('scroll', onScroll))
 </script>
 
 <template>
-  <header class="inner-header" :class="{ 'is-scrolled': scrolled, 'is-hidden': !visible }">
+  <header class="inner-header vive-header" :class="{ 'is-scrolled': scrolled, 'is-hidden': !visible }">
     <a class="inner-brand" href="/" aria-label="VIVE home"><span><img :src="asset('inner-pages/9a7c4.webp')" alt="VIVE"></span></a>
     <nav aria-label="Main navigation">
       <a href="/products" :aria-current="route.path.startsWith('/product') ? 'page' : undefined">PRODUCTS</a><a href="/technology" :aria-current="route.path.replace(/\/$/, '') === '/technology' ? 'page' : undefined">TECHNOLOGY</a><a href="/about" :aria-current="route.path.replace(/\/$/, '') === '/about' ? 'page' : undefined">ABOUT</a><a href="/journal" :aria-current="route.path.startsWith('/journal') ? 'page' : undefined">JOURNAL</a><a href="/faqs" :aria-current="route.path.replace(/\/$/, '') === '/faqs' ? 'page' : undefined">FAQS</a>

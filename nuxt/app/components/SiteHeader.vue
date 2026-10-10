@@ -34,9 +34,9 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <header class="site-header" :class="{ 'is-scrolled': scrolled, 'is-hidden': !visible }">
+  <header class="site-header vive-header" :class="{ 'is-scrolled': scrolled, 'is-hidden': !visible }">
     <a class="brand" href="#top" aria-label="VIVE home">
-      <span class="brand-crop"><img :src="asset('imgChatgptImage20265152123561.webp')" alt="VIVE"></span>
+      <span class="brand-crop"><img :src="asset('inner-pages/9a7c4.webp')" alt="VIVE"></span>
     </a>
     <nav class="main-nav" aria-label="Main navigation">
       <a v-for="link in links" :key="link.href" :href="link.href">{{ link.label }}</a>
