@@ -41,7 +41,7 @@ onBeforeUnmount(() => {
     <div ref="dialog" class="video-modal" role="dialog" aria-modal="true" aria-label="Discover VIVE video" data-lenis-prevent @mousedown.self="emit('close')">
       <button ref="closeButton" class="video-modal-close" type="button" aria-label="Close video" @click="emit('close')">×</button>
       <div class="video-modal-frame">
-        <video ref="video" :src="asset('scout-hero-11-21.webm')" :poster="asset('scout-hero-poster.webp')" controls playsinline preload="metadata" tabindex="0" />
+        <video ref="video" :src="asset('vive-factory-full-4k.webm')" :poster="asset('vive-factory-poster.webp')" controls playsinline preload="metadata" tabindex="0" />
       </div>
     </div>
   </Teleport>

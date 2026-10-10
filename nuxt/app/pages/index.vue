@@ -7,7 +7,7 @@ useHead({ htmlAttrs: { style: `--engineering-mask:url("${asset('imgLouisReedWStC
 
 <template>
   <main class="home-page">
-    <HeroSection @open-video="videoOpen = true" />
+    <HeroSection :video-open="videoOpen" @open-video="videoOpen = true" />
     <ProductsSection />
     <StoryFlow />
     <UpgradeSection />

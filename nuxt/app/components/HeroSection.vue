@@ -1,12 +1,21 @@
 <script setup lang="ts">
 const asset = useAsset()
+const props = defineProps<{ videoOpen?: boolean }>()
+const bannerVideo = ref<HTMLVideoElement | null>(null)
 const emit = defineEmits<{ openVideo: [] }>()
+watch(() => props.videoOpen, (open) => {
+  if (open) bannerVideo.value?.pause()
+  else void bannerVideo.value?.play().catch(() => { /* The poster remains visible if autoplay is blocked. */ })
+})
 </script>
 
 <template>
   <section id="top" class="hero screen">
-    <video class="hero-bg" :src="asset('scout-hero-11-21.webm')" :poster="asset('scout-hero-poster.webp')"
-      autoplay muted loop playsinline preload="auto" aria-label="Scout autonomous vehicle driving through woodland" />
+    <video ref="bannerVideo" class="hero-bg" :poster="asset('vive-factory-poster.webp')"
+      autoplay muted loop playsinline preload="auto" aria-label="VIVE wheel manufacturing — 20 second preview">
+      <source :src="asset('vive-factory-banner-mobile-20s.webm')" type="video/webm" media="(max-width: 760px)">
+      <source :src="asset('vive-factory-banner-20s.webm')" type="video/webm">
+    </video>
     <div class="hero-shade" />
     <img class="hero-top-fade" :src="asset('imgRectangle1430107304.webp')" alt="">
     <SiteHeader />
@@ -19,7 +28,7 @@ const emit = defineEmits<{ openVideo: [] }>()
     </div>
     <button class="video-card" type="button" aria-haspopup="dialog" aria-label="Play Discover VIVE video" @click="emit('openVideo')">
       <div class="video-thumb">
-        <img :src="asset('imgImage2.webp')" alt="VIVE off-road video">
+        <img :src="asset('vive-factory-poster.webp')" alt="Watch the full VIVE manufacturing film">
         <span class="play"><img :src="asset('imgFrame2087326985.svg')" alt="Play"></span>
       </div>
       <div class="video-meta"><span>NEW VIDEO</span><strong>Discover VIVE</strong></div>
