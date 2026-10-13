@@ -26,7 +26,7 @@ onBeforeUnmount(() => clearTimeout(transitionTimer))
 <template>
   <section id="engineering" class="engineering section">
     <div class="section-heading engineering-heading" data-reveal="fade">
-      <h2 class="reveal-title" data-reveal="words" aria-label="ENGINEERING EXCELLENCE"><RevealWords text="ENGINEERING EXCELLENCE" /></h2><ArrowButton>LEARN MORE</ArrowButton>
+      <h2 class="reveal-title" data-reveal="words" aria-label="ENGINEERING EXCELLENCE"><RevealWords text="ENGINEERING EXCELLENCE" /></h2><ArrowButton href="/technology">LEARN MORE</ArrowButton>
     </div>
     <div class="engineering-panel" data-reveal="lift">
       <EngineeringCardLayer v-if="previousIndex === null || previousIndex !== previewIndex" :key="`preview-${previewIndex}`" :index="previewIndex" class="is-preview" />

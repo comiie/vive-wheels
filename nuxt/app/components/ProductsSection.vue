@@ -22,7 +22,7 @@ const { progress, dragging, progressDragging, updateProgress, startDrag, moveDra
       <div class="scale-track" :class="{ 'is-dragging': progressDragging }" :style="{ '--progress-position': `${14.7 + progress * 84.3}%` }"
         role="slider" tabindex="0" aria-label="Product carousel position" :aria-valuemin="0" :aria-valuemax="100" :aria-valuenow="Math.round(progress * 100)"
         @pointerdown="startProgressDrag" @pointermove="moveProgressDrag" @pointerup="finishProgressDrag" @pointercancel="finishProgressDrag" @lostpointercapture="finishProgressDrag" @keydown="onKeydown"><span /></div>
-      <ArrowButton>LEARN MORE</ArrowButton>
+      <ArrowButton href="/products">LEARN MORE</ArrowButton>
     </div>
   </section>
 </template>

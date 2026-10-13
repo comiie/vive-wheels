@@ -286,11 +286,11 @@ h1, h2, h3, p { margin: 0; font-weight: 400; }
   .products { height: auto; min-height: 1054px; padding-bottom: 100px; }
   .products-heading { align-items: flex-start; }
   .filters { position: static; width: auto; height: 42px; display: flex; gap: 24px; }
-  .filters button, .filters button:nth-child(n) { position: static; width: auto; min-width: 101px; padding-inline: 24px; }
+  .filters button, .filters button:nth-child(n) { position: relative; inset: auto; width: auto; min-width: 101px; padding-inline: 24px; }
   .product-row { justify-content: flex-start; }
   .products-foot { position: static; margin-top: 72px; }
   .engineering { height: auto; min-height: 850px; padding-bottom: 100px; }
-  .engineering-heading .outline-button { position: static; }
+  .engineering-heading .outline-button { position: relative; inset: auto; }
   .engineering-underlay, .engineering-rail { display: none; }
   .engineering-panel { position: relative; left: auto; top: auto; width: 100%; height: 574px; margin-top: 80px; }
   .engineering-image { left: 24px; width: calc(61% - 24px); }
@@ -448,6 +448,8 @@ h1, h2, h3, p { margin: 0; font-weight: 400; }
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .story-flow > :is(.engineering, .about, .journal) { position: relative; top: auto; transform: none; translate: none; }
+  .story-spacer { display: none; }
   html { scroll-behavior: auto; }
   .site-header { transition: none; }
   .hero-bg, .hero-copy h1 i, .hero-copy p, .video-card { animation: none; }
